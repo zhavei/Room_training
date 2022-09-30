@@ -27,6 +27,7 @@ class NoteAddUpdateActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
+
         noteAddUpdateViewModel = obtainViewModel(this@NoteAddUpdateActivity)
 
         note = intent.getParcelableExtra(EXTRA_NOTE)
@@ -38,12 +39,13 @@ class NoteAddUpdateActivity : AppCompatActivity() {
 
         val actionBarTitle: String
         val btnTitle: String
-
+        //this is if state become update activity or add
         if (isEdit) {
             actionBarTitle = getString(R.string.change)
             btnTitle = getString(R.string.update)
             if (note != null) {
                 note.let { note ->
+                    //if editext is not empty setText string from note
                     binding.edtTitle.setText(note?.title)
                     binding.edtDescription.setText(note?.description)
                 }

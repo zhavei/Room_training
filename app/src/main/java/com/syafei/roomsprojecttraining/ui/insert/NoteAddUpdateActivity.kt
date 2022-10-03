@@ -30,6 +30,7 @@ class NoteAddUpdateActivity : AppCompatActivity() {
 
         noteAddUpdateViewModel = obtainViewModel(this@NoteAddUpdateActivity)
 
+        //disini di mulai apakah item yg di click yang di handle adapter ada isinya atau tidak
         note = intent.getParcelableExtra(EXTRA_NOTE)
         if (note != null) {
             isEdit = true
@@ -39,13 +40,13 @@ class NoteAddUpdateActivity : AppCompatActivity() {
 
         val actionBarTitle: String
         val btnTitle: String
-        //this is if state become update activity or add
+        //this is if it become state update or add new one
         if (isEdit) {
             actionBarTitle = getString(R.string.change)
             btnTitle = getString(R.string.update)
             if (note != null) {
                 note.let { note ->
-                    //if editext is not empty setText string from note
+                    //if editext is not empty setText to actionBartitle and btnTitle
                     binding.edtTitle.setText(note?.title)
                     binding.edtDescription.setText(note?.description)
                 }

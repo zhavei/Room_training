@@ -9,6 +9,7 @@ import androidx.room.RoomDatabase
 @Database(entities = [Note::class], version = 1)
 abstract class NoteRoomDatabase : RoomDatabase() {
 
+    //abstark class harus memiliki 1 atau lebih abstrak method
     abstract fun noteDao(): NoteDao
 
     companion object {
